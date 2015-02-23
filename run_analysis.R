@@ -5,27 +5,28 @@ library("tidyr", lib.loc="/Library/Frameworks/R.framework/Versions/3.1/Resources
 path <- "~/Dropbox/on-line/coursera/03_GettingData/03_project/UCI HAR Dataset/"
 
 # Read in data, subjects, labels, and activities for train and test data
+
+# (activity_labels)
 activity_labels <- read.table(paste(path,"activity_labels.txt",sep = ''), quote="\"")
 
-# View(activity_labels)
+# features
 features <- read.table(paste(path, "features.txt", sep = ''), quote="\"")
 
-# View(features)
+# (x data) 
 x_test <- read.table(paste(path, "test/X_test.txt", sep = ''), quote="\"")
 x_train <- read.table(paste(path, "train/X_train.txt", sep = ''), quote="\"")
 
-# View(X_test)
+# (y data)
 y_test <- read.table(paste(path, "test/y_test.txt", sep = ''), quote="\"")
 y_train <- read.table(paste(path, "train/y_train.txt", sep = ''), quote="\"")
 
 
-# View(y_test)
+# (subjects)
 subjects_test <- read.table(paste(path,'test/subject_test.txt', sep = ''), quote="\"")
 subjects_train <- read.table(paste(path,'train/subject_train.txt', sep = ''), quote="\"")
 
 
 # Name columns of the data frames
-
 # test data
 colnames(x_test) <- features[,2]
 colnames(y_test) <- c('activity')
